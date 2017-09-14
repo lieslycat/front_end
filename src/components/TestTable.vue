@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Table stripe :columns="columns1" :data="data1"></Table>
+    <Table stripe :columns="columns1" :data="data1" width=""></Table>
     <br>
     <Pageinition/>
   </div>
