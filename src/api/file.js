@@ -1,5 +1,5 @@
 import axios from 'axios'
-import HttpInterface from './httpinterface'
+import * as HttpInterface from './httpinterface'
 export default {
   listAllFolders () {
     return new Promise((resolve, reject) => {

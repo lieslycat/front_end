@@ -21,9 +21,9 @@ const actions = {
     })
   },
   getFilesInFolder ({commit}, e) {
-    file.listFiles(folder.dictionaryId).then(files => {
-      commit(types.LIST_FILES, {folderName: folder.value, files})
-    })
+    // file.listFiles(folder.dictionaryId).then(files => {
+    //   commit(types.LIST_FILES, {folderName: folder.value, files})
+    // })
   }
 }
 
