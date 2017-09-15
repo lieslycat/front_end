@@ -20,9 +20,9 @@ const actions = {
       console.log(err)
     })
   },
-  getFilesInFolder ({commit}, {folderName, folderId}) {
-    file.listFiles(folderId).then(files => {
-      commit(types.LIST_FILES, {folderName, files})
+  getFilesInFolder ({commit}, e) {
+    file.listFiles(folder.dictionaryId).then(files => {
+      commit(types.LIST_FILES, {folderName: folder.value, files})
     })
   }
 }
