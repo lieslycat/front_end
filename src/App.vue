@@ -79,7 +79,7 @@
         <Breadcrumb>
           <BreadcrumbItem to="#"><router-link to="/">首页</router-link></BreadcrumbItem>
           <BreadcrumbItem href="#"><router-link to="/testtable">应用中心</router-link></BreadcrumbItem>
-          <BreadcrumbItem>某应用</BreadcrumbItem>
+          <BreadcrumbItem><router-link to="/material">某应用</router-link></BreadcrumbItem>
         </Breadcrumb>
       </div>
       <div class="layout-content">
