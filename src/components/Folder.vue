@@ -2,14 +2,14 @@
   <!--<div class="layout-content">-->
     <Row>
       <Col span="7">
-      <Menu theme="dark" @on-open-change="getFilesInFolder($event)">
-        <Submenu :name="index+1" v-for="(folderLabel, index) in allFolderLabels">
+      <Menu theme="dark" @on-open-change="getFilesInFolder">
+        <Submenu :name="folderLabel" v-for="(folderLabel, index) in allFolderLabels">
           <template slot="title">
             <Icon type="ios-navigate"></Icon>
             {{folderLabel}}
           </template>
 
-          <MenuItem v-for="(file, index) in allFolders[folderLabel]" :name="'1-'+index+1">{{file.FileName}}</MenuItem>
+          <MenuItem v-for="(file, index) in allFolders.get(folderLabel)" :name="'1-'+index+1">{{file.FileName}}</MenuItem>
         </Submenu>
       </Menu>
       </Col>
@@ -22,14 +22,18 @@
 <script>
   import {mapGetters, mapActions} from 'vuex'
   export default {
-    computed: mapGetters([
-      'allFolderLabels',
-      'allFolders'
-    ]),
-    methods: mapActions([
-      'getAllFolders',
-      'getFilesInFolder'
-    ]),
+    computed: {
+      ...mapGetters([
+        'allFolders',
+        'allFolderLabels'
+      ])
+    },
+    methods: {
+      ...mapActions([
+        'getAllFolders',
+        'getFilesInFolder'
+      ])
+    },
     created () {
       this.$store.dispatch('getAllFolders')
     }

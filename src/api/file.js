@@ -16,7 +16,7 @@ export default {
   },
   listFiles (folderId) {
     return new Promise((resolve, reject) => {
-      axios.get(HttpInterface.FILE.LIST_FILES, {params: {folderId: folderId}})
+      axios.get(HttpInterface.FILE.LIST_FILES + '/' + folderId)
         .then(res => {
           resolve(res.data)
         }, err => {
