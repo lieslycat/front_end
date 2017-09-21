@@ -1,5 +1,7 @@
-import file from '../../api/file'
+import {FileApi} from '../../api/file'
 import * as types from '../mutation-types'
+
+// import Vue from 'vue'
 
 const state = {
   folders: new Map(),
@@ -13,7 +15,7 @@ const getters = {
 
 const actions = {
   getAllFolders ({commit}) {
-    file.listAllFolders().then(res => {
+    FileApi.listAllFolders().then(res => {
       commit(types.LIST_FOLDERS, res)
     }).catch(err => {
       console.log(err)
@@ -25,7 +27,7 @@ const actions = {
       return
     }
     let folder = state.folders.get(target.innerText.trim())
-    file.listFiles(folder.dictionaryId).then(files => {
+    FileApi.listFiles(folder.dictionaryId).then(files => {
       commit(types.LIST_FILES, {folderName: folder.value, files})
     })
   }
@@ -44,6 +46,7 @@ const mutations = {
     let newFiles = new Map(state.files.entries())
     newFiles.set(folderName, files)
     state.files = newFiles
+    // Vue.set(state.files, folderName, files)
   }
 }
 

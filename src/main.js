@@ -9,7 +9,6 @@ import store from './store'
 
 Vue.use(iview)
 Vue.config.productionTip = false
-console.log(process.env.NODE_ENV)
 require('../src/mock')
 
 /* eslint-disable no-new */
